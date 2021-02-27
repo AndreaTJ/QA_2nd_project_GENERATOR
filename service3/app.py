@@ -2,8 +2,8 @@ from flask import Flask, render_template, jsonify
 app = Flask(__name__)
 
 import requests
-api = 'http://localhost:5000'
-api2 = 'http://localhost:5001'
+api = 'http://35.226.160.227:5000'
+api2 = 'http://35.226.160.227:5001'
 
 @app.route('/')
 def hello_internet():
