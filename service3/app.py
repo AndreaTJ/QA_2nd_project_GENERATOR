@@ -2,8 +2,8 @@ from flask import Flask, render_template, jsonify
 app = Flask(__name__)
 
 import requests
-api = 'http://service2:5002'
-api2 = 'http://service3:5001'
+api = 'http://service2:5001'
+api2 = 'http://service3:5002'
 
 @app.route('/')
 def hello_internet():
@@ -26,5 +26,3 @@ def hello_internet():
     generated = jsonify (generated)
     return generated
 
-if __name__=='__main__':
-    app.run(port=5002, debug=True, host='0.0.0.0')

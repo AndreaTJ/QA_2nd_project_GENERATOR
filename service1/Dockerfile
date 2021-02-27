@@ -8,4 +8,4 @@ RUN pip3 install -r requirements.txt
 # Expose correct port
 EXPOSE 5000
 # Create an entrypoint
-ENTRYPOINT ["python3", "app.py"]
+ENTRYPOINT ["gunicorn"  , "--bind", "0.0.0.0:5000", "app:app"]

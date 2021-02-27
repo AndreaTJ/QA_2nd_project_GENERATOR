@@ -6,6 +6,6 @@ COPY . .
 # install pip dependencies from requirements file
 RUN pip3 install -r requirements.txt
 # Expose correct port
-EXPOSE 5000
+EXPOSE 5002
 # Create an entrypoint
-ENTRYPOINT ["python3", "app.py"]
+ENTRYPOINT ["gunicorn"  , "--bind", "0.0.0.0:5002", "app:app"]

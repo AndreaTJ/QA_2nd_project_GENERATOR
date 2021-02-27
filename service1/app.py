@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 import sqlite3
 app = Flask(__name__)
 import requests
-api = 'http://service4:5000'
+api = 'http://service4:5003'
 
 
 def new_register (generated):
@@ -38,5 +38,3 @@ def hello_internet():
     
     
     
-if __name__=='__main__':
-    app.run(port=5003, debug=True, host='0.0.0.0')
