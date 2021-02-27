@@ -1,0 +1,22 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global S.L | {% block titulo %}{% endblock %}</title>
+
+</head>
+<body>
+    <header>
+        Header
+    </header>
+    <section>
+       
+       {%for i in gn%}
+       <div>{{i}}</div>
+       {% endfor %}
+    </section>
+    <footer>
+        &copy; Footer
+    </footer>
+</body>
+</html>
