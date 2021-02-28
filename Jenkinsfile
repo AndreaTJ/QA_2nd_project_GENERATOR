@@ -4,7 +4,7 @@ pipeline {
         stage('Configure - Ansible'){
             steps{
                 sh 'chmod +x ./scripts/configure_ansible.sh'
-                sh './scripts/test.sh'
+                sh './scripts/configure_ansible'
             }
         }                  
     }
