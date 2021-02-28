@@ -31,6 +31,3 @@ def hello_internet():
     result_generated = { country: money2}
     result_generated = jsonify ( result_generated)
     return  result_generated
-
-if __name__=='__main__':
-    app.run(port=5001, debug=True, host='0.0.0.0')
