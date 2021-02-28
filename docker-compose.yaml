@@ -2,8 +2,8 @@
 version: '3.7'
 services:
   service1:
-    image: andreatj/app_four
-    build: ./app_four
+    image: andreatj/service1
+    build: ./service1
     ports: 
     - target: 5000
       published: 5000
@@ -11,19 +11,19 @@ services:
       replicas: 4
 
   service2:
-    image: andreatj/app_one
-    build: ./app_one
+    image: andreatj/service2
+    build: ./service2
     deploy:
       replicas: 2
 
   service3:
-    image: andreatj/app_two
-    build: ./app_two
+    image: andreatj/service3
+    build: ./service3
     deploy:
       replicas: 2
   service4:
-    image: andreatj/app_three
-    build: ./app_three
+    image: andreatj/service4
+    build: ./service4
     deploy: 
       replicas: 2
   

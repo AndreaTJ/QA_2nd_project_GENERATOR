@@ -1,15 +1,30 @@
-from flask import Flask
-import random
+from flask import Flask, render_template, jsonify
 app = Flask(__name__)
+
+import requests
+api = 'http://service2:5003'
+api2 = 'http://service3:5002'
 
 @app.route('/')
 def hello_internet():
-    animal = dict() 
-    animal = {1:"bear", 2:"cat", 3:"dog"}
+    
+    response = requests.get(api)
+    print ("first api", response)
+    print (response.text)
+    first = response.text 
 
-    number = random.randint (1, len(animal.keys()))
-    doce = len(animal.keys())
-    print(doce) 
+  
 
-    return animal[number] 
+    response = requests.get(api2)
+    print ("second api", response)
+    print (response.text)
 
+    second = response.text 
+
+    generated = dict() 
+    generated = {first:second}
+    generated = jsonify (generated)
+    return generated
+
+if __name__=='__main__':
+    app.run(port=5001, debug=True, host='0.0.0.0')

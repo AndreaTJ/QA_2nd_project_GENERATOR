@@ -1,15 +1,15 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
-import sqlite3
-app = Flask(__name__)
 import requests
-api = 'http://service4:5003'
+app = Flask(__name__)
+
+api = 'http://service4:5001'
 
 
 def new_register (generated):
         for key, value in generated.items(): 
             return key, value
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@mysql_container:3306/flask-db'
+app.config['SQLALCHEMY_DATABASE_URI']= 'mysql+pymysql://root:root@34.68.21.59/flaskdb'
 db = SQLAlchemy(app)
 class Duo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -38,3 +38,6 @@ def hello_internet():
     
     
     
+if __name__=='__main__':
+    app.run(port=5000, debug=True, host='0.0.0.0')
+
