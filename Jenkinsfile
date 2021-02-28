@@ -17,7 +17,7 @@ pipeline {
         
         stage('Deploy'){
             steps{
-                sh 'docker-compose push && docker stack deploy --compose-file docker-compose.yaml flaskapp'
+                sh 'scp -i ./ssh/id_rsa docker-compose.yaml jenkins@35.188.151.251:docker-compose.yaml"
                
             }
         } 
