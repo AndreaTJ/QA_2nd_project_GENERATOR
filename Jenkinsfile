@@ -17,7 +17,7 @@ pipeline {
         
         stage('Deploy'){
             steps{
-                sh 'scp -i ./ssh/id_rsa docker-compose.yaml jenkins@35.188.151.251:docker-compose.yaml'
+                sh 'scp docker-compose.yaml jenkins@35.188.151.251:docker-compose.yaml'
                
             }
         } 
