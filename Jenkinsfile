@@ -13,6 +13,13 @@ pipeline {
                 sh 'ansible-playbook -i inventory.yaml playbook.yaml'
                
             }
-        }                  
+        } 
+        
+        stage('Build'){
+            steps{
+                sh 'docker-compose push && docker stack deploy --compose-file docker-compose.yaml flaskapp'
+               
+            }
+        } 
     }
 }
