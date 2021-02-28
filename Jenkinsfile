@@ -15,16 +15,14 @@ pipeline {
             }
         } 
         
-/* this
-   is a
-   multi-line comment 
+
         stage('Deploy'){
             steps{
                 sh 'scp docker-compose.yaml jenkins@35.188.151.251:docker-compose.yaml && docker-compose push'
-                sh "ssh 35.188.151.251 && docker stack deploy --compose-file docker-compose.yaml flaskapp"
+                sh "ssh 35.188.151.251 docker stack deploy --compose-file docker-compose.yaml flaskapp"
                
             }
-        } */
+        } 
         
         stage('LoadBalancer'){
             steps{
