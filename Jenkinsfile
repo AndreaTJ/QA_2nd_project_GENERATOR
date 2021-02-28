@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    environment {
-        DOCKERHUB_LOGIN = credentials("docker-hub-credentials")
-    }
     stages {
         stage('Configure - Ansible'){
             steps{
