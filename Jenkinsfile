@@ -4,6 +4,7 @@ pipeline {
         
         stage('Test'){
             steps{
+                sh "pwd"
                 sh 'chmod +x ./test.sh'
                 sh '. test.sh'
             }
