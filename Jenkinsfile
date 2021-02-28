@@ -2,6 +2,12 @@ pipeline {
     agent any
     stages {
         
+        stage('Test'){
+            steps{
+                sh 'chmod +x ./test.sh'
+                sh '. test.sh'
+            }
+        }
         stage('Build'){
             steps{
                 sh 'docker-compose build'
