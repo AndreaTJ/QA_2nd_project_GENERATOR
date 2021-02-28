@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 import requests
+from os import getenv 
 app = Flask(__name__)
 
 api = 'http://service4:5001'
@@ -9,13 +10,15 @@ api = 'http://service4:5001'
 def new_register (generated):
         for key, value in generated.items(): 
             return key, value
-app.config['SQLALCHEMY_DATABASE_URI']= 'mysql+pymysql://root:root@34.68.21.59/flaskdb'
+app.config['SQLALCHEMY_DATABASE_URI']= getenv("DATABASE_URI")
 db = SQLAlchemy(app)
 class Duo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     animal= db.Column(db.String(30), nullable=False)
     prize = db.Column(db.String(30), nullable=False)
-db.create_all() 
+
+db.drop_all()
+db.create_all()
 
 
 @app.route('/')

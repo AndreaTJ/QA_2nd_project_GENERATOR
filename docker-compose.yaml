@@ -4,6 +4,8 @@ services:
   service1:
     image: andreatj/service1
     build: ./service1
+    environment: 
+    - DATABASE_URI=mysql+pymysql://root:root@34.68.21.59/flaskdb
     ports: 
     - target: 5000
       published: 5000
