@@ -1,2 +1,5 @@
 app_four/__pycache__
+db/database.db
 venv/
+docker-compose.yaml2
+db/
