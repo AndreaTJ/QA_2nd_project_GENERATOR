@@ -5,26 +5,32 @@ import requests
 api = 'http://service2:5003'
 api2 = 'http://service3:5002'
 
+###########################
+
 @app.route('/')
 def hello_internet():
     
     response = requests.get(api)
-    print ("first api", response)
-    print (response.text)
-    first = response.text 
+    country = response.text 
 
-  
 
     response = requests.get(api2)
-    print ("second api", response)
-    print (response.text)
+    money = response.text 
 
-    second = response.text 
+    money2 = 0 
+    if len(country) in range (0,7):
+        money2 = float(money)/25 +1
+        money2 = str(round(money2,2))
+    else: 
+        money2 = float(money)*5
+        money2 = str(round(money2,2))
 
-    generated = dict() 
-    generated = {first:second}
-    generated = jsonify (generated)
-    return generated
+
+
+    result_generated = dict() 
+    result_generated = { country: money2}
+    result_generated = jsonify ( result_generated)
+    return  result_generated
 
 if __name__=='__main__':
     app.run(port=5001, debug=True, host='0.0.0.0')

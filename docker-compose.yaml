@@ -15,17 +15,26 @@ services:
   service2:
     image: andreatj/service2
     build: ./service2
+    ports: 
+      - target: 5003
+        published: 5003
     deploy:
       replicas: 2
 
   service3:
     image: andreatj/service3
     build: ./service3
+    ports: 
+      - target: 5002
+        published: 5002
     deploy:
       replicas: 2
   service4:
     image: andreatj/service4
     build: ./service4
+    ports: 
+      - target: 5001
+        published: 5001
     deploy: 
       replicas: 2
   

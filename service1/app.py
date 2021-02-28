@@ -7,18 +7,25 @@ app = Flask(__name__)
 api = 'http://service4:5001'
 
 
+###############
+
 def new_register (generated):
         for key, value in generated.items(): 
             return key, value
-app.config['SQLALCHEMY_DATABASE_URI']= getenv("DATABASE_URI")
+
+
+app.config['SQLALCHEMY_DATABASE_URI']= "mysql+pymysql://root:root@34.68.21.59/flaskdb"
+
 db = SQLAlchemy(app)
+
 class Duo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    animal= db.Column(db.String(30), nullable=False)
-    prize = db.Column(db.String(30), nullable=False)
+    country= db.Column(db.String(30), nullable=False)
+    money = db.Column(db.String(30), nullable=False)
 
-db.drop_all()
-db.create_all()
+db.drop_all
+db.create_all() 
+
 
 
 @app.route('/')
@@ -26,21 +33,21 @@ def hello_internet():
     
     response = requests.get(api)
     generated = response.json() 
-    print (generated)
-    print(type(generated))
-    animal, prize = new_register (generated)
 
-    db.session.add(Duo(animal=animal, prize=prize))
+    country, money = new_register (generated)
+    db.session.add(Duo( country= country, money=money))
     db.session.commit()
+
+    query = db.session.query(Duo).order_by(Duo.id.desc()).all()
     
-    final = Duo.query.all()
-    for i in final: 
-        animal1 = i.animal
-        prize1 = i.prize 
-    return render_template ( "base.html" , gn = (animal1, prize1))
+    return render_template ( "base.html" , result=query, country=country, money=money)
+
+    
+
     
     
-    
+
+
+
 if __name__=='__main__':
     app.run(port=5000, debug=True, host='0.0.0.0')
-
