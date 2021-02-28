@@ -1,18 +1,7 @@
 
 version: '3.7'
 services:
-  flask-app-1:
-    image: andreatj/app_one
-    build: ./app_one
-  flask-app-2:
-    image: andreatj/app_two
-    build: ./app_two
-  flask-app-3:
-    image: andreatj/app_three
-    build: ./app_three
-    deploy: 
-      replicas: 2
-  flask-app-4:
+  service1:
     image: andreatj/app_four
     build: ./app_four
     ports: 
@@ -21,4 +10,21 @@ services:
     deploy:
       replicas: 4
 
+  service2:
+    image: andreatj/app_one
+    build: ./app_one
+    deploy:
+      replicas: 2
+
+  service3:
+    image: andreatj/app_two
+    build: ./app_two
+    deploy:
+      replicas: 2
+  service4:
+    image: andreatj/app_three
+    build: ./app_three
+    deploy: 
+      replicas: 2
+  
 

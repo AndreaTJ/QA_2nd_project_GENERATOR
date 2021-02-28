@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 import requests
 app = Flask(__name__)
 
-api = 'http://flask-app-3:5001'
+api = 'http://service4:5001'
 
 
 def new_register (generated):
