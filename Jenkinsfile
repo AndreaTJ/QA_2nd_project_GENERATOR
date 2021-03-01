@@ -4,6 +4,9 @@ pipeline {
         
         stage('Test'){
             steps{
+                dir("service1") {
+                        sh "python3 -m pytest --cov=app"
+                }
                 dir("service2") {
                         sh "python3 -m pytest --cov=app"
                 }
