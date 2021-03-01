@@ -6,7 +6,7 @@ pipeline {
             steps{
                 sh "pwd"
                 sh "ls -la"
-                dir("service1/testing") {
+                dir("service1") {
                         sh "pytest --cov-report term --cov=app"
                 }
             }
