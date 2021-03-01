@@ -3,6 +3,7 @@ pwd
 
 cd ./service1/testing
 pip3 install -r requirements.txt
+pwd
 pytest --cov app 
 cd ..
 
