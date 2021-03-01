@@ -34,7 +34,7 @@ def hello_internet():
     response = requests.get(api)
     generated = response.json() 
 
-    country, money = new_register (generated)
+    country, money = generated
     db.session.add(Duo( country= country, money=money))
     db.session.commit()
 
