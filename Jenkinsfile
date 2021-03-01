@@ -7,7 +7,7 @@ pipeline {
                 sh "pwd"
                 sh "ls -la"
                 dir("service1") {
-                        sh "python3 -m pytest --cov=app"
+                        sh "sudo su jenkins python3 -m pytest --cov=app"
                 }
             }
         }
