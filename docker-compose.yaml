@@ -16,17 +16,17 @@ services:
     image: andreatj/service2
     build: ./service2
     deploy:
-      replicas: 2
+      replicas: 4
 
   service3:
     image: andreatj/service3
     build: ./service3
     deploy:
-      replicas: 2
+      replicas: 4
   service4:
     image: andreatj/service4
     build: ./service4
     deploy: 
-      replicas: 2
+      replicas: 4
   
 

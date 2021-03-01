@@ -10,6 +10,5 @@ class TestBase(TestCase):
 
 class TestResponse(TestBase):
     def test_random_destination(self):
-        destinations = [b'Brazil', b'Mexico', b'Bahamas', b'San Francisco', b'Miami', b'Madrid', b'Pekin', b'Dubai', b'Paris', b'Rome']
         response = self.client.get(url_for("hello_internet"))
-        self.assertIn(response.data, destinations)
+        self.assertIn(b"anywhere", response.data)

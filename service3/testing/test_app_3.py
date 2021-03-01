@@ -10,6 +10,6 @@ class TestBase(TestCase):
 
 class TestResponse(TestBase):
     def test_random_number(self):
-        numbers= [b"5000", b"1", b"25000", b"34", b"500", b"780", b"300000", b"43000", b"3", b"0.4"]
+        numbers= [b"100", b"10", b"200", b"34", b"500", b"780", b"300", b"430", b"3", b"0.4"]
         response = self.client.get(url_for("prizes"))
         self.assertIn(response.data, numbers)
