@@ -6,7 +6,7 @@ pipeline {
             steps{
                 
                 dir("service1") {
-                        sh "python3 -m pytest --cov=app --cov-report term-missing"
+                        sh "pytest --cov:app"
                 }
                 
                 /*
