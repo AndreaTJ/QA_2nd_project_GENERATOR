@@ -7,7 +7,7 @@ pipeline {
                 sh "pwd"
                 sh "ls -la"
                 dir("service1") {
-                        sh "pytest --cov-report term --cov=app"
+                        sh "python3 -m pytest --cov=app"
                 }
             }
         }
