@@ -18,9 +18,9 @@ pipeline {
                 }
                  dir("service4") {
                         sh "python3 -m pytest --cov=app"
-                }
+                }*/
             }
-        }*/
+        }
         
 
         stage('Build'){
