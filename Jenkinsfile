@@ -8,6 +8,7 @@ pipeline {
                 sh "ls -la"
                 dir("service1/testing") {
                         sh "pip3 install -r requirements.txt"
+                        sh "pytest --cov-report term --cov=app"
                 }
             }
         }
