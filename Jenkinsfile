@@ -4,12 +4,12 @@ pipeline {
        
         stage('Test'){
             steps{
-                
+                /*
                 dir("service1") {
                         sh "pip3 install -r testing/requirements.txt && python3 -m pytest --cov=app"
                 }
+                */
                 
-                /*
                 dir("service2") {
                         sh "python3 -m pytest --cov=app"
                 }
@@ -18,7 +18,7 @@ pipeline {
                 }
                  dir("service4") {
                         sh "python3 -m pytest --cov=app"
-                }*/
+                }
             }
         }
         
