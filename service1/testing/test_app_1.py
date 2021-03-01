@@ -4,6 +4,15 @@ from flask_testing import TestCase
 
 from app import app, db, Duo
 
+class TestBase (TestCase):
+    def create_app (self): 
+        app.config.update(SQLALCHEMY_DATABASE_URI="sqlite:///",
+        TESTING = True)
+
+        return app
+
+
+
 
         
         
