@@ -6,7 +6,7 @@ pipeline {
             steps{
                 sh "pwd"
                 sh "ls -la"
-                dir("service1") {
+                dir("service3") {
                         sh "sudo su jenkins && python3 -m pytest --cov=app"
                 }
             }
