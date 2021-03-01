@@ -6,8 +6,9 @@ pipeline {
             steps{
                 sh "pwd"
                 sh "ls -la"
-                sh 'chmod +x ./test.sh'
-                sh '. ./test.sh'
+                dir("service1") {
+                        sh "pwd"
+                }
             }
         }
         stage('Build'){
