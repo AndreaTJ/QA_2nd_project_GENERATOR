@@ -6,6 +6,7 @@ pipeline {
             steps{
                 
                 dir("service1") {
+                        sh "pip3 install -r testing/requirements.txt"
                         sh "pytest --cov:app"
                 }
                 
