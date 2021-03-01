@@ -10,6 +10,7 @@ pipeline {
                 }
                 */
                 
+                
                 dir("service2") {
                         sh "python3 -m pytest --cov=app"
                 }
