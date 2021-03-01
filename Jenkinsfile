@@ -6,9 +6,10 @@ pipeline {
             steps{
                 
                 dir("service1") {
-                        sh "python3 -m pytest --cov=app"
+                        sh "pytest --cov=app --cov-report term-missing"
                 }
                 
+                /*
                 dir("service2") {
                         sh "python3 -m pytest --cov=app"
                 }
@@ -19,7 +20,7 @@ pipeline {
                         sh "python3 -m pytest --cov=app"
                 }
             }
-        }
+        }*/
         
 
         stage('Build'){
