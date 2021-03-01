@@ -47,8 +47,9 @@ pipeline {
         stage('LoadBalancer'){
             steps{
                 sh 'scp nginx/nginx.conf jenkins@34.122.221.134:nginx'
-                sh "ssh jenkins@34.122.221.134 docker container rm -f nginx-loadbalancer"
-                sh "ssh jenkins@34.122.221.134 docker run -d -p 80:80 --name nginx-loadbalancer --mount type=bind,source=/home/jenkins/nginx.conf,target=/etc/nginx/nginx.conf nginx:alpine"
+                sh "ssh jenkins@34.122.221.134 docker service rm nginx-loadbalancer"
+                sh "ssh jenkins@34.122.221.134 docker service create -d -p 80:80 --name nginx-loadbalancer --mount type=bind,source=/home/jenkins/nginx.conf,target=/etc/nginx/nginx.conf nginx:alpine"
+                sh "ssh jenkins@34.122.221.134 docker service update --replicas 4 nginx-loadbalancer"
 
             }
         }
