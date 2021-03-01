@@ -9,10 +9,6 @@ api = 'http://service4:5001'
 
 ###############
 
-def new_register (generated):
-        for key, value in generated.items(): 
-            return key, value
-
 
 app.config['SQLALCHEMY_DATABASE_URI']= "mysql+pymysql://root:root@34.68.21.59/flaskdb"
 

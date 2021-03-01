@@ -24,14 +24,14 @@ class TestResponse(TestBase):
 
     def test_req(self):
         with patch('requests.get') as g:
-            country = "Madrid"
-            money2 = "500"
+            country = "Paris"
+            money2 = "15"
             result_2 = country, money2
             g.return_value.json.return_value = result_2
 
             response = self.client.get(url_for('hello_internet'))
-            self.assertIn(b"Madrid", response.data)
-            self.assertIn(b"50", response.data)
+            self.assertIn(b"Paris", response.data)
+            self.assertIn(b"15", response.data)
 
 
 
