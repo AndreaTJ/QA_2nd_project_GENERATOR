@@ -10,7 +10,7 @@ services:
     - target: 5000
       published: 5000
     deploy:
-      replicas: 8
+      replicas: 4
 
   service2:
     image: andreatj/service2
