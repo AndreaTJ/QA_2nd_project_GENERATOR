@@ -36,5 +36,3 @@ def hello_internet():
     query = db.session.query(Duo).order_by(Duo.id.desc()).all()
     
     return render_template ( "base.html" , result=query, country=country, money=money)
-
-    
