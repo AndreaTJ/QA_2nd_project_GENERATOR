@@ -30,4 +30,5 @@ def hello_internet():
     result_generated = dict() 
     result_generated = { country: money2}
     result_generated = jsonify ( result_generated)
-    return  result_generated
+    result_2 = jsonify (country, money2)
+    return  result_2
