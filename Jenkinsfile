@@ -4,9 +4,13 @@ pipeline {
         
         stage('Test'){
             steps{
-                sh "pwd"
-                sh "ls -la"
-                dir("service3") {
+                dir("service2") {
+                        sh "python3 -m pytest --cov=app"
+                }
+                 dir("service3") {
+                        sh "python3 -m pytest --cov=app"
+                }
+                 dir("service4") {
                         sh "python3 -m pytest --cov=app"
                 }
             }
