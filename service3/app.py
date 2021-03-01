@@ -6,8 +6,11 @@ app = Flask(__name__)
 @app.route('/')
 def prizes():
     prizes = dict() 
-    prizes = {1:5000, 2:1, 3:25000, 4:34, 5:500, 6:780, 7:300000, 8:43000, 9:3, 10: 0.4}
+    prizes = {1:100, 2:10, 3:200, 4:34, 5:500, 6:780, 7:300, 8:430, 9:3, 10: 0.4}
     number = random.randint (1, len(prizes.keys()))
     return str(prizes[number])
 
+
+if __name__=='__main__':
+    app.run(port=5002, debug=True, host='0.0.0.0')
 

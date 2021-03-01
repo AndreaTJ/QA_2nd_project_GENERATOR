@@ -18,11 +18,11 @@ def hello_internet():
     money = response.text 
 
     money2 = 0 
-    if len(country) in range (0,7):
-        money2 = float(money)/25 +1
+    if len(country) in range (0,5):
+        money2 = float(money)*10
         money2 = str(round(money2,2))
     else: 
-        money2 = float(money)*5
+        money2 = float(money)*3
         money2 = str(round(money2,2))
 
 
@@ -32,3 +32,6 @@ def hello_internet():
     result_generated = jsonify ( result_generated)
     result_2 = jsonify (country, money2)
     return  result_2
+
+if __name__=='__main__':
+    app.run(port=5001, debug=True, host='0.0.0.0')
