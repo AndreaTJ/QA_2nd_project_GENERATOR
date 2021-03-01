@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        
+         /*
         stage('Test'){
             steps{
                 dir("service1") {
@@ -19,8 +19,8 @@ pipeline {
                 }
             }
         }
-        
-        /*
+        */
+       
         stage('Build'){
             steps{
                 sh 'docker-compose build'
@@ -50,7 +50,7 @@ pipeline {
                 sh "ssh jenkins@34.122.221.134 docker run -d -p 80:80 --name nginx-loadbalancer --mount type=bind,source=/home/jenkins/nginx.conf,target=/etc/nginx/nginx.conf nginx:alpine"
 
             }
-        }*/
+        }
     }
 }
 
