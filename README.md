@@ -2,7 +2,7 @@
 
 The following document contains the breakdown of the development process of "Travel Generator".
 
-##Requirements
+## Requirements
 
 The agreed requirements for this project are the following:
 
