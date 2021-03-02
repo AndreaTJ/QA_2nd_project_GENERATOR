@@ -17,14 +17,14 @@ The agreed requirements for this project are the following:
 * Orchestration Tool: Docker Swarm
 * Reverse Proxy: NGINX
 
-##My approach
+## My approach
 
 To satisfy the requirements of this project, I developed an application that generates a random destination and budget for an imaginary trip this summer called “Travel Generator”. 
 
 
 The application has been structured as follows
 
-###Version 1
+### Version 1
 
 ![https://trello-attachments.s3.amazonaws.com/603d8d45a2a5d167bf6713b6/603d9493c064c46fb04f8e53/634671b492e22899c1379bf5bde21927/Screenshot_2021-03-01_at_23.51.30.png](https://trello-attachments.s3.amazonaws.com/603d8d45a2a5d167bf6713b6/603d9493c064c46fb04f8e53/634671b492e22899c1379bf5bde21927/Screenshot_2021-03-01_at_23.51.30.png)
 
@@ -57,7 +57,7 @@ This application uses port 5000.
 
 ---
 
-###Version 2	
+### Version 2	
 
 **Service 2**
 
@@ -91,7 +91,7 @@ https://trello-attachments.s3.amazonaws.com/603d8d45a2a5d167bf6713b6/603d9493c06
 ](https://trello-attachments.s3.amazonaws.com/603d8d45a2a5d167bf6713b6/603d9493c064c46fb04f8e53/cbeb80812f5f38093e13c62d5abfb424/Screenshot_2021-03-01_at_23.52.44.png)
 
 
-##Project Tracking 
+## Project Tracking 
 
 A Trello Board has been used to keep a constant tracking of my activities, where I have been annotating the tasks derived from the creation of services and all significant changes, trying to emulate the Agile methodology at all times.
 
@@ -119,7 +119,7 @@ A db managed database (GCP, SQL) has been used for this project.
 
 
 
-##CI Pipeline (Diagram)
+## CI Pipeline (Diagram)
 
 Once the bases of our project have been defined, we can start coding our application. This is when we start to go through our CI pipeline.
 
@@ -135,14 +135,14 @@ Based on a continuous deployment approach, the application is ready for the live
 
 During this process, each time the set of assigned tasks has been completed, we go back to the Backlog (Trello) to find out what our next task or set of tasks is.
 
-##Pipeline Job
+## Pipeline Job
 
 The pipeline follows has 5 stages for version 1 and 3 for version 2.
 
 
 ![](https://trello-attachments.s3.amazonaws.com/603d8d45a2a5d167bf6713b6/603d9493c064c46fb04f8e53/7b3688edc5b4a77fdc81bf72410c2ac9/V1.png)
 
-###Testing
+### Testing
 
 This is the first step in our pipeline, in this way, we make sure that the application passes the designed tests.
 
@@ -167,12 +167,12 @@ The percentage reached has been 90%. The untested function has been manually tes
 
 ![](https://trello-attachments.s3.amazonaws.com/603d8d45a2a5d167bf6713b6/603d9493c064c46fb04f8e53/f10aa15d1aca684af3fc110d338b8a8a/T4.png)
 
-###Build
+### Build
 
 The next stage in the pipeline is: Build.
 In this step, we will build the images of our 4 services. To do this, we will use Docker Compose (docker-compose build) which will create all the images in a single step. The specifications with which the images will be built are found in the Dockerfile of each application.
 
-###Configure - Ansible
+### Configure - Ansible
 
 In this project we use Ansible as a configuration management tool.
 
@@ -182,13 +182,13 @@ Ansible will take care of:
 
 - It will also start the swarm on our Master machine and make the Worker join the swarm. In this way, we can use the Docker stack to deploy our application.
 
-###Deploy
+### Deploy
 
 After the construction of images, they will be pushed to our registry, in this case, to our personal account in Docker Hub. After this, the deployment of our application will begin, starting with pulling the images from the repository. For the deployment we have made use of the Docker stack. Our node manager executes the command (docker stack deploy --compose-file docker-compose.yaml flaskapp) and with the help of our worker, deploys the application (Manager and worker are part of the same swarm).
 During this process, replicas of the services will be created to ensure that the application is always available (redundancy and high availability).
 
 
-###Load balancer
+### Load balancer
 
 In this last step, we make sure our VM with Nginx as a service is doing the load balancer work. In this case, we use Nginx also as a reverse proxy for our application.
 
@@ -198,7 +198,7 @@ time for the deployment.
 
 ![](https://trello-attachments.s3.amazonaws.com/603d8d45a2a5d167bf6713b6/603d9493c064c46fb04f8e53/8890b7a005cd996bf8f3a17a9facf7e4/Screenshot_2021-03-01_at_20.42.39.png)
 	
-#Risk Assessment 
+# Risk Assessment 
 
 
 The following risk assessment identifies hazards and risk factors that could cause harm to the implementation of our services. I have listed the prevention measures I have used to control the risk when the hazard cannot be eliminated.
@@ -206,7 +206,7 @@ The following risk assessment identifies hazards and risk factors that could cau
 ![](https://trello-attachments.s3.amazonaws.com/603d8d45a2a5d167bf6713b6/603d9493c064c46fb04f8e53/53e75cd2c5729fbd16e6504d5fedf8a7/Screenshot_2021-03-01_at_23.35.24.png)
 
 
-#Further Improvements
+# Further Improvements
 
 Overall, this project was successful in creating 4 services and deploying them using Docker. However, there are a few improvements that I would like to implement:
 
@@ -217,13 +217,13 @@ Overall, this project was successful in creating 4 services and deploying them u
 - Add a button to refresh the result
 
 
-#Acknowledgements
+# Acknowledgements
 
 * Thanks to Ben Hesketh, Nathan Forester and Jay Grindrod for the time they spent helping me understand and correct my problems and concerns.
 * Thanks to K.V and W.S for their patience and help.
 * And thanks to F. Hidalgo for his emotional support.
 
-#Autor
+# Autor
 Andrea Torres-Jaramillo
 
 
