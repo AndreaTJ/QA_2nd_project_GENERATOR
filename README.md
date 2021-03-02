@@ -109,7 +109,7 @@ The appearance of the board, at the end of development.
 
 ![](https://trello-attachments.s3.amazonaws.com/603d8d45a2a5d167bf6713b6/603d9493c064c46fb04f8e53/7881f5e8bffd3dad873c9cb377767cf9/Final.png)
 
-##Database 
+# Database 
 
 ![](https://trello-attachments.s3.amazonaws.com/603d8d45a2a5d167bf6713b6/603d9493c064c46fb04f8e53/d86ba5903bf8cbb7f093ecf9e97bc71b/Screenshot_2021-03-01_at_23.39.43.png)
 
